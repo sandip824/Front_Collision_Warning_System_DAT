@@ -22,24 +22,41 @@ This project is implimeted in two steps
 ### 1. Object detection
 ### 2. FCW conditioning 
 The FCW warning condtion is desided on below factors .
-* Find distance of the object from vehicle 
-* Find apex ratio to deside collison warnig threshold 
-* Collision Time 
-* Vehichle Speed 
+* Apex ratio to deside collison warnig threshold 
+* Distance of the object from vehicle 
+distance calculation is done in 2 steps 
+    1. Camera calibration to find focal length of camera.
+       To find the foclal lemngth of the camera a object with known weidth is kept at known istance. Then using triangal similarity model of pinhole camera
+       the focal length is calculated as 
+       f = (d x r) / R
+    2. Actual distance calculation using focal length.
+      Once we calculate the focal lengt if the camera its time to calculate real distance of the object from camera.
+      Distance of the object is calculated as 
+      d = (f X R)/r
+      
+      where 
+      f - focal length of camera
+      R- Actual weidth of the object 
+      r- weidth of the detected object in image.
+      Note : Please note that here we have considered real weidth od the object as average weidth of passanger cars 
+      so the whatever distance will be calculated will be approximate not the accurate distance.
+      
+![images](https://www.researchgate.net/profile/Oezge-Bayri-Oetenkaya/publication/333457836/figure/fig1/AS:764001881432064@1559163651059/Figure-8-Focal-length-rule-But-in-this-case-we-cannot-examine-the-exact-value-of-focal.png)
+[image Source](https://www.researchgate.net/profile/Oezge-Bayri-Oetenkaya/publication/333457836/figure/fig1/AS:764001881432064@1559163651059/Figure-8-Focal-length-rule-But-in-this-case-we-cannot-examine-the-exact-value-of-focal.png)
 
-This project is implimented in two distinct phases
-
-
+* __Vehichle Speed:____
+      Ideally vehicle speed will be calculated using sensors installed on the vehicle but in our case its not avaible, So i have tried to simulated the vehicle speed           calculation by calculating SSIM between two subsequent video frames. Please note that this speed calculation is not accurate it is just for simulation purpose.
+      Calculating vehicle speed from the video sequence is still a research topic. 
+* __Collision Time:__
+      The collision time for every detected object is calculated by deviding distance with speed
+      Collision time = (Object distance/Speed of vehicle)
 
 
 ## Results.
-
-
 https://user-images.githubusercontent.com/47384889/153769926-9d4213f8-5152-40f6-a5ea-0fc067d44147.mp4
 
 
-## Challanges faced.
-list down the challanges here
+## Limitations
 
 ## Credits
 This project uses Open Source components. You can find the source code of their open source project along with license information below. We acknowledge and are grateful to these developers for their contributions to open source.
