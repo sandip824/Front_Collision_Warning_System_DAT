@@ -63,3 +63,4 @@ This project uses Open Source components. You can find the source code of their 
 
 * Installing TensorFlow Object Detection API on Windows 10 [here](https://medium.com/@marklabinski/installing-tensorflow-object-detection-api-on-windows-10-7a4eb83e1e7b)
 * Determining other vehicle distances and collision warning - Self Driving Cars in GTA [here](https://pythonprogramming.net/detecting-distances-self-driving-car/)
+* Collision_Warning_Based_on_Multi-Object_Detection_and_Distance_Estimation [here](https://www.researchgate.net/publication/348155370_Collision_Warning_Based_on_Multi-Object_Detection_and_Distance_Estimation)
