@@ -51,10 +51,8 @@ distance calculation is done in 2 steps
       The collision time for every detected object is calculated by deviding distance with speed
       Collision time = (Object distance/Speed of vehicle)
 
-
 ## Results.
 https://user-images.githubusercontent.com/47384889/154838676-5b46f305-7d77-4db6-adb4-45af2cad46cc.mp4
-
 
 ## Limitations
 
